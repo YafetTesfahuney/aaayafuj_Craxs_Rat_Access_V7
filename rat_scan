@@ -1,0 +1,18 @@
+import os
+import subprocess
+
+# Function to scan an IP address range using Nmap
+def ip_scan(target_range):
+    print(f"Scanning target range: {target_range}")
+    try:
+        # Running Nmap command to scan the provided target range
+        result = subprocess.run(["nmap", "-sP", target_range], capture_output=True, text=True)
+        print("Scan Results:")
+        print(result.stdout)
+    except Exception as e:
+        print(f"Error scanning IP range: {e}")
+
+# Example usage
+if __name__ == "__main__":
+    target_range = input("Enter the target IP range (e.g., 192.168.1.0/24): ")
+    ip_scan(target_range)
